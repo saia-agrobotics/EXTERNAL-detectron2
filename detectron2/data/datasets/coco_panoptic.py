@@ -39,6 +39,12 @@ def load_coco_panoptic_json(json_file, image_dir, gt_dir, meta):
     with PathManager.open(json_file) as f:
         json_info = json.load(f)
 
+    # NOTE: The remaining part of this method was edited in this version.
+    # The edits mean that it is *no longer* assumed that the image and label has
+    # the same filename or that images have extension ".jpg" for COCO.
+
+    image_id_to_image_file = {int(image['id']): image['file_name'] for image in json_info['images']}
+
     ret = []
     for ann in json_info["annotations"]:
         image_id = int(ann["image_id"])
@@ -46,7 +52,9 @@ def load_coco_panoptic_json(json_file, image_dir, gt_dir, meta):
         # different extension, and images have extension ".jpg" for COCO. Need
         # to make image extension a user-provided argument if we extend this
         # function to support other COCO-like datasets.
-        image_file = os.path.join(image_dir, os.path.splitext(ann["file_name"])[0] + ".jpg")
+        image_file = image_id_to_image_file[image_id]
+        if image_dir not in image_file:
+            image_file = os.path.join(image_dir, image_file)
         label_file = os.path.join(gt_dir, ann["file_name"])
         segments_info = [_convert_category_id(x, meta) for x in ann["segments_info"]]
         ret.append(
