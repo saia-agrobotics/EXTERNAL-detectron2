@@ -9,5 +9,6 @@ requires = [
     "nvidia-cuda-runtime-cu11",
     "nvidia-nvtx-cu11",
     "nvidia-cudnn-cu11",
+    "nvidia-cuda-cupti-cu11",
     ]
 build-backend = "setuptools.build_meta:__legacy__"
