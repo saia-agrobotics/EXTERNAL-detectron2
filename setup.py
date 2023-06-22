@@ -219,7 +219,7 @@ setup(
             "nvidia-curand-cu11",
             "nvidia-cufft-cu11",
             "nvidia-nvtx-cu11",
-            "nvidia-cuda-cupti-cu11",
+            "nvidia-cuda-cupti-cu11==11.7.101",
         ],
     },
     ext_modules=get_extensions(),
