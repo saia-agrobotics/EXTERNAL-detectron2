@@ -3,6 +3,7 @@ requires = [
     "setuptools",
     "wheel",
     "torch",
-    "nvidia",
+    "nvidia-curand-cu11",
+    "nvidia-cufft-cu11",
     ]
 build-backend = "setuptools.build_meta:__legacy__"
