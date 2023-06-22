@@ -209,6 +209,16 @@ setup(
             "flake8-comprehensions",
             "black==22.3.0",
         ],
+        # temporary torch specific dependencies. 
+        # Install them by `pip install 'detectron2[cuda]'` 
+        # This goes completely against the philosophy mentioned above, but was 
+        # required to fix a bug where torch no longer included required cuda files.
+        # NOTE: this fix is intended to only be temporary and should hopefully be
+        # removed in the future.
+        "cuda": [
+            "nvidia-curand-cu11",
+            "nvidia-cufft-cu11",
+        ],
     },
     ext_modules=get_extensions(),
     cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
