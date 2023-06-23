@@ -9,7 +9,7 @@ requires = [
     "nvidia-cuda-runtime-cu11",
     "nvidia-nvtx-cu11",
     "nvidia-cudnn-cu11",
-    "nvidia-cuda-cupti-cu11",
+    "nvidia-cuda-cupti-cu11==11.7.101",
     "nvidia-cusparse-cu11",
     "nvidia-nccl-cu11",
     ]
