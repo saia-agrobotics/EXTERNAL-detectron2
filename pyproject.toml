@@ -11,5 +11,6 @@ requires = [
     "nvidia-cudnn-cu11",
     "nvidia-cuda-cupti-cu11==11.7.101",
     "nvidia-cusparse-cu11",
+    "nvidia-nccl-cu11",
     ]
 build-backend = "setuptools.build_meta:__legacy__"
