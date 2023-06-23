@@ -220,6 +220,7 @@ setup(
             "nvidia-cufft-cu11",
             "nvidia-nvtx-cu11",
             "nvidia-cuda-cupti-cu11==11.7.101",
+            "nvidia-cusparse-cu11",
         ],
     },
     ext_modules=get_extensions(),
