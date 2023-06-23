@@ -218,7 +218,10 @@ setup(
         "cuda": [
             "nvidia-curand-cu11",
             "nvidia-cufft-cu11",
+            "nvidia-cublas-cu11",
+            "nvidia-cuda-runtime-cu11==11.7.99",
             "nvidia-nvtx-cu11",
+            "nvidia-cudnn-cu11==8.5.0.96",
             "nvidia-cuda-cupti-cu11==11.7.101",
             "nvidia-cusparse-cu11",
             "nvidia-nccl-cu11",
