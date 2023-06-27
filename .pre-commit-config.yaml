@@ -1,0 +1,19 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+    # Workflow
+    - id: no-commit-to-branch
+      args: [--branch, main]
+    - id: check-merge-conflict
+    - id: destroyed-symlinks
+    # Formatting
+    - id: mixed-line-ending
+      args: [ --fix=lf ]
+    - id: trailing-whitespace
+      args: [ --markdown-linebreak-ext=md ]
+    - id: end-of-file-fixer
+    - id: check-yaml
+      args: [--unsafe]
+    # Security
+    - id: detect-private-key
