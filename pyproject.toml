@@ -2,7 +2,7 @@
 requires = [
     "setuptools",
     "wheel",
-    "torch",
+    "torch >= 1.8, < 2.0",
     "nvidia-curand-cu11;platform_system=='Linux'",
     "nvidia-cufft-cu11;platform_system=='Linux'",
     "nvidia-cublas-cu11;platform_system=='Linux'",
