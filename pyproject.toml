@@ -1,16 +1,51 @@
+[project]
+name = "detectron2"
+version = "0.1.0"  # Replace this with dynamic versioning if needed
+description = "Detectron2 is FAIR's next-generation research platform for object detection and segmentation."
+authors = [{ name = "FAIR", email = "contact@fair.org" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+dependencies = [
+    "Pillow>=7.1",
+    "matplotlib",
+    "pycocotools>=2.0.2",
+    "termcolor>=1.1",
+    "yacs>=0.1.8",
+    "tabulate",
+    "cloudpickle",
+    "tqdm>4.29.0",
+    "tensorboard",
+    "fvcore>=0.1.5,<0.1.6",
+    "iopath>=0.1.7,<0.1.10",
+    "dataclasses; python_version<'3.7'",
+    "omegaconf>=2.1,<2.4",
+    "hydra-core>=1.1",
+    "black",
+    "packaging"
+]
+
+[project.optional-dependencies]
+all = [
+    "fairscale",
+    "timm",
+    "scipy>1.5.1",
+    "shapely",
+    "pygments>=2.2",
+    "psutil",
+    "panopticapi @ https://github.com/cocodataset/panopticapi/archive/master.zip"
+]
+dev = [
+    "flake8==3.8.1",
+    "isort==4.3.21",
+    "flake8-bugbear",
+    "flake8-comprehensions",
+    "black==22.3.0"
+]
+
 [build-system]
-requires = [
-    "setuptools",
-    "wheel",
-    "torch >= 1.8, < 2.0",
-    "nvidia-curand-cu11;platform_system=='Linux'",
-    "nvidia-cufft-cu11;platform_system=='Linux'",
-    "nvidia-cublas-cu11;platform_system=='Linux'",
-    "nvidia-cuda-runtime-cu11;platform_system=='Linux'",
-    "nvidia-nvtx-cu11;platform_system=='Linux'",
-    "nvidia-cudnn-cu11;platform_system=='Linux'",
-    "nvidia-cuda-cupti-cu11==11.7.101;platform_system=='Linux'",
-    "nvidia-cusparse-cu11;platform_system=='Linux'",
-    "nvidia-nccl-cu11;platform_system=='Linux'",
-    ]
-build-backend = "setuptools.build_meta:__legacy__"
+requires = ["setuptools", "wheel", "torch >= 1.8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"detectron2" = "detectron2", "detectron2.projects.point_rend" = "projects/PointRend/point_rend", "detectron2.projects.deeplab" = "projects/DeepLab/deeplab", "detectron2.projects.panoptic_deeplab" = "projects/Panoptic-DeepLab/panoptic_deeplab"}
